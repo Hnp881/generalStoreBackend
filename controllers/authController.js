@@ -47,7 +47,6 @@ export const registerController = async (req, res) => {
       answer,
     }).save();
 
-    console.log(user);
     res.status(201).send({
       success: true,
       message: "User Register Successfully",
@@ -90,7 +89,7 @@ export const loginController = async (req, res) => {
       });
     }
     //token
-    const token = JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
+    const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
     res.status(200).send({

@@ -85,8 +85,7 @@ export const getProductController = async (req, res) => {
     });
   }
 };
-
-// get single product details
+// get single product
 export const getSingleProductController = async (req, res) => {
   try {
     const product = await productModel
